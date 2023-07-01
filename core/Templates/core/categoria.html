@@ -1,0 +1,27 @@
+{% extends 'core/plantillaNavegador.html' %}
+{% load static %}
+
+
+{% block titulo  %}Categorias{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/categoria.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        {% for p in peli %}
+        <div class="col-sm-12 col-md-4 ">
+
+            <a href="{% url 'pelicula' p.pelicula.idpelicula %}">
+                <img src="{{ p.pelicula.imagen.url }}" alt="Lights" style="width:100%">
+                <div class="caption">
+                    <p>{{ p.pelicula.nombrepelicula }}</p>
+                </div>
+            </a>
+        </div>
+       {% endfor %}
+    </div>
+</div>
+{% endblock %}

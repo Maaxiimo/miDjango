@@ -1,0 +1,22 @@
+{% extends 'core/plantillaNavegador.html' %}
+{% load static %}
+{% block titulo  %}Editar Pelicula{% endblock %}
+
+{% block css %}
+#
+{% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Editar Pelicula
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de peliculas</h4>
+        {% include 'core/formulariopel.html' %}
+    </div>
+    
+</div>
+
+{% endblock %}

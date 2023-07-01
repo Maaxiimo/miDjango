@@ -1,10 +1,17 @@
 from django.urls import path
-from .views import home
 
+
+import core
+from .views import index, lomasnuevo, recomendadas , ranking, categoria , pelicula , peliculasmostrar , registrarpelicula , editarpeliculas ,eliminarpeliculas
 urlpatterns = [
-    path('', home, name="home"),
-    path('listar-mod-vehiculo', listar_mod_vehiculo, name="listar_mod_vehiculo"),
-    path('form-vehiculo', form_vehiculo, name="form_vehiculo"),
-    path('form-mod-vehiculo/<id>', form_mod_vehiculo, name="form_mod_vehiculo"),
-    path('form-del-vehiculo/<id>', form_del_vehiculo, name="form_del_vehiculo"),
+    path('', index, name="index"),
+    path('lomasnuevo', lomasnuevo, name="lomasnuevo"),
+    path('recomendadas', recomendadas, name="recomendadas"),
+    path('ranking', ranking, name="ranking"),
+    path('categoria/<int:id>', categoria, name="categoria"),
+    path('pelicula/<int:id>', pelicula, name="pelicula"),
+    path('peliculasmostrar', peliculasmostrar , name = "peliculasmostrar"),
+    path('registrar' , registrarpelicula , name = "registrar" ),
+    path('editarpeliculas' , editarpeliculas , name = "editarpeliculas" ),
+     path('eliminarpeliculas/<int:id>',eliminarpeliculas , name="eliminarpeliculas"),
 ]

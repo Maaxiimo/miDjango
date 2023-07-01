@@ -1,0 +1,59 @@
+{% extends 'core/plantillaNavegador.html' %}
+{% load static %}
+
+{% block titulo %}Peliculas{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/mostrarpelicula.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+       <a name="" id="" class="btn btn-success" href="#" role="button">Agregar Nuevo LIbro</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Peliculas</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Pelicula</th>
+                    <th>Director</th>
+                    <th>Reparto Principal</th>
+                    <th>Descripcion</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in peli %}
+                <tr>
+                    <td>{{i.pelicula.idpelicula}}</td>
+                    <td>{{i.pelicula.nombrepelicula }}</td>
+                    <td>{{i.pelicula.director}}</td>
+                    <td>{{i.pelicula.reparto}}</td>
+                    <td>{{i.pelicula.descripcion}}</td>
+                    <td>
+                        <img src="{{i.pelicula.imagen.url}}" alt="Lights" style="width:100%">
+                    </td>
+                    <td>
+                        <a name="editar" id="editar" class="btn btn-info" href="#" role="button">Editar</a>
+                        
+                        <a name="editar" id="eliminar" class="btn btn-danger" href="{% url 'eliminarpeliculas' i.pelicula.idpelicula %}" role="button">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+
+
+    </div>
+    
+</div>
+
+
+
+{% endblock %}

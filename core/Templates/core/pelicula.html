@@ -1,0 +1,94 @@
+{% extends 'core/plantillaNavegador.html' %}
+{% load static %}
+
+{% block titulo  %}Pelicula{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/pelicula.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+   
+        <h1>{{ peli.nombrepelicula }}</h1>
+      </div>
+
+    </div>
+    
+    <div class="edit">
+      <img src="{{ peli.imagen.url }}" alt="Lights">
+    </div>
+    
+
+    {% for p in cat %}
+    <div class="container mt-3">
+      <div class="btn">
+        <button type="button" class="btn">{{p.categoria}}</button>
+      </div> 
+    </div>
+    {% endfor %}
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header">
+          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+            Descripcion
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+          <div class="card-body">
+            {{peli.descripcion}}
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            Reparto principal
+          </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            {{peli.reparto}}
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+              Director
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+              {{peli.director}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    
+    <div class="container mt-3">
+        <form action="">
+          <label> puntuacion</label>
+          <input type="number">
+        </form>
+        </div>
+
+    <div class="container mt-3">
+      <h2>Comentarios</h2>
+
+      <form action="#">
+        <div class="form-floating mb-3 mt-3">
+          <textarea class="form-control" id="comment" name="text" placeholder="Comment goes here"></textarea>
+          <label for="comment">Comentarios</label>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+{% endblock %}
